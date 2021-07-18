@@ -6,7 +6,6 @@
         exit;
     }
 
-
 ?>
 
 <!DOCTYPE html>
@@ -27,40 +26,53 @@
             <div class="card-header text-primary">
                 Ubah Password
             </div>
-            <div class="card-body">
-                <div class="row justify-content-center form">
-                    <div class="col-md">
-                        <div class="form-grub mb-3">
-                            <label for="" class="text-dark p-0 m-0">Sandi Lama</label>
-                            <div class="gabung d-flex align-items-center position-relative">
-                                <input type="password" class="form-control form-control-sm" id="pswdLama">
-                                <i class="far fa-eye-slash position-absolute" id="hide" onclick="pswdLama()"></i>
-                                <i class="far fa-eye position-absolute" id="show" onclick="pswdLama()"></i>
+            <form action="aksi-ubah-password.php?aksi=sandi" method="post" class="p-0 m-0">
+                <?php 
+                    include "../koneksi.php";
+                    $id     = $_SESSION['id'];
+                    $query  = mysqli_query($koneksi,"SELECT * FROM user WHERE id='$id'");
+                    $data   = mysqli_fetch_assoc($query);
+                ?>
+                <div class="card-body">
+                    <div class="row justify-content-center form">
+                        <div class="col-md">
+                            <div class="from-grub">
+                                <input type="text" hidden name="id_user" id="id_user" value="<?php echo $data['id']; ?>">
                             </div>
-                        </div>
-                        <div class="form-grub mb-3">
-                            <label for="" class="text-dark p-0 m-0">Sandi Baru</label>
-                            <div class="gabung d-flex align-items-center position-relative">
-                                <input type="password" class="form-control form-control-sm" id="pswdBaru">
-                                <i class="far fa-eye-slash position-absolute" id="hide2" onclick="pswdBaru()"></i>
-                                <i class="far fa-eye position-absolute" id="show2" onclick="pswdBaru()"></i>
+                            <div class="form-grub mb-3">
+                                <label for="" class="text-dark p-0 m-0">Sandi Lama</label>
+                                <div class="gabung d-flex align-items-center position-relative">
+                                    <input type="password" class="form-control form-control-sm" id="pswdLama" name="pswdLama">
+                                    <i class="far fa-eye-slash position-absolute" id="hide" onclick="pswdLama()"></i>
+                                    <i class="far fa-eye position-absolute" id="show" onclick="pswdLama()"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-grub mb-3">
-                            <label for="" class="text-dark p-0 m-0">Ulangi Sandi</label>
-                            <div class="gabung d-flex align-items-center position-relative">
-                                <input type="password" class="form-control form-control-sm" id="ulngPswd">
-                                <i class="far fa-eye-slash position-absolute" id="hide3" onclick="ulngPswd()"></i>
-                                <i class="far fa-eye position-absolute" id="show3" onclick="ulngPswd()"></i>
+                            <div class="form-grub mb-3">
+                                <label for="" class="text-dark p-0 m-0">Sandi Baru</label>
+                                <div class="gabung d-flex align-items-center position-relative">
+                                    <input type="password" class="form-control form-control-sm" id="pswdBaru" name="pswdBaru">
+                                    <i class="far fa-eye-slash position-absolute" id="hide2" onclick="pswdBaru()"></i>
+                                    <i class="far fa-eye position-absolute" id="show2" onclick="pswdBaru()"></i>
+                                </div>
+                            </div>
+                            <div class="form-grub mb-3">
+                                <label for="" class="text-dark p-0 m-0">Ulangi Sandi</label>
+                                <div class="gabung d-flex align-items-center position-relative">
+                                    <input type="password" class="form-control form-control-sm" id="ulngPswd" name="ulngPswd">
+                                    <i class="far fa-eye-slash position-absolute" id="hide3" onclick="ulngPswd()"></i>
+                                    <i class="far fa-eye position-absolute" id="show3" onclick="ulngPswd()"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="row sim-kem">
+                        <!-- <a href="#" type="submit" class="btn btn-success ml-3">Simpan</a>
+                        <a href="#" onclick="history.go(-1)" class="btn btn-primary mr-3">Kembali</a> -->
+                        <button type="submit" class="btn btn-success ml-3">Simpan</button>
+                        <button type="button" onclick="history.go(-1)" class="btn btn-primary mr-3">Kembali</button>
+                    </div>  
                 </div>
-                <div class="row sim-kem">
-                    <a href="#" class="btn btn-success ml-3">Simpan</a>
-                    <a href="#" onclick="history.go(-1)" class="btn btn-primary mr-3">Kembali</a>
-                </div>
-            </div>
+            </form>
         </div>
         
         <?php include 'footer.php' ?>

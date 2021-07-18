@@ -44,8 +44,10 @@ if (isset($_POST["login"])){
             // set session
             if ($row['level'] == "user") {
                 $_SESSION["login"]  = true;
+                $_SESSION['id']     = $row['id'];
                 $_SESSION['name']   = $row['name'];
                 $_SESSION['email']  = $row['email'];
+                $_SESSION['pass']   = $row['password'];
                 $_SESSION['level']  = $row['level'];
 
                 // cek remember me
@@ -55,12 +57,15 @@ if (isset($_POST["login"])){
                     setcookie('key', hash('sha256', $row['email']), time() + 180);
                 }
 
-                header("Location: mod/dashbord-user.php?pesan=login");
+                $_SESSION['sukses'] = 'Anda Berhasil Login';
+                header("Location: mod/dashbord-user.php");
                 
             } elseif ($row['level'] == "admin") {
                 $_SESSION["login"]  = true;
+                $_SESSION['id']     = $row['id'];
                 $_SESSION['name']   = $row['name'];
                 $_SESSION['email']  = $row['email'];
+                $_SESSION['pass']   = $row['password'];
                 $_SESSION['level']  = $row['level'];
 
                 // cek remember me
@@ -70,7 +75,8 @@ if (isset($_POST["login"])){
                     setcookie('key', hash('sha256', $row['email']), time() + 180);
                 }
 
-                header("Location: mod/dashbord-admin.php?pesan=login");
+                $_SESSION['sukses'] = 'Anda Berhasil Login';
+                header("Location: mod/dashbord-admin.php");
             }
         }
     }
@@ -107,9 +113,7 @@ if (isset($_POST["login"])){
 
         <!-- Outer Row -->
         <div class="row justify-content-center">
-
             <div class="col-xl-10 col-lg-12 col-md-9">
-
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
@@ -121,16 +125,13 @@ if (isset($_POST["login"])){
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
 
-                                    <?php
-                                    if (isset($error)) :
-                                    ?>
+                                    <?php if (isset($error)) :?>
+
                                         <div class="alert alert-danger" role="alert">
                                             Username & Password Anda Salah!
                                         </div>
-                                    <?php
-                                        echo "<meta http-equiv='refresh' content='2;url=login.php'>";
-                                    endif;
-                                    ?>
+
+                                    <?php endif; ?>
 
                                     <form class="user" method="post">
                                         <div class="form-group">
@@ -159,11 +160,8 @@ if (isset($_POST["login"])){
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
     <!-- Bootstrap core JavaScript-->
@@ -176,7 +174,10 @@ if (isset($_POST["login"])){
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-
+    <!-- script sweetalert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <?php include 'sweetalert/pesan.php'; ?>
+    
 </body>
 
 </html>

@@ -103,3 +103,6 @@ $(".fancybox-thumb").fancybox({
 
 <!-- Script Custom Upload Profile -->
 <script src="../js/app.js"></script>
+
+<!-- Script Sweetalert -->
+<?php include "../sweetalert/pesan.php"; ?>

@@ -1,5 +1,6 @@
 <?php 
     session_start();
+    include 'koneksi.php';
     require 'functions.php';
 
     if (isset($_SESSION["login"])){
@@ -14,9 +15,9 @@
 
     if(isset($_POST["register"])){
         if(registrasi($_POST) > 0){
-            echo "<script>
-                    alert('user baru berhasil ditambahkan !');
-                </script>";
+            $_SESSION['sukses'] = 'User Baru Berhasil Ditambahkan !';
+            header("location: login.php");
+            exit;
         } else {
             echo mysqli_error($koneksi);
         }
@@ -104,6 +105,7 @@
 
     <!-- script sweetalert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <?php include 'sweetalert/pesan.php'; ?>
 
 </body>
 

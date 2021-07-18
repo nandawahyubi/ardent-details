@@ -36,8 +36,10 @@ $mail = new PHPMailer(true);
 		
 		$query1 = "INSERT INTO tb_pelanggan (id_pelanggan,nama_pelanggan,email,no_telp,alamat) VALUES 
 		('$id_pelanggan','$nama','$email','$telp','$alamat')";
+
 		$query2 = "INSERT INTO tb_kendaraan (id_kendaraan,merk,warna,thn_pembuatan,no_polisi,jenis_paket) VALUES 
 		('$id_kendaraan','$merk','$warna','$tahun','$no_polisi','$paket')";
+		
 		$query3 = "INSERT INTO tb_booking (id_booking,id_pelanggan,id_kendaraan,dp,jadwal,metode_pembayaran,gbr) VALUES 
 		('$id_booking','$id_pelanggan','$id_kendaraan','$dp','$tanggal','$transfer','$gambar')";
 

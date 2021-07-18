@@ -256,45 +256,7 @@
 
     <?php include 'script.php' ?>
 
-    <!-- Photo -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
-    <script>
-        var scroll = new SmoothScroll('a[href*="#"]');
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            $(".fancybox-thumb").fancybox({
-                prevEffect: 'none',
-                nextEffect: 'none',
-                helpers: {
-                    title: {
-                        type: 'outside'
-                    },
-                    thumbs: {
-                        width: 50,
-                        height: 50
-                    }
-                }
-            });
-        });
-    </script>
-
     <?php
-        $lgin = (isset($_GET['pesan']) ? $_GET['pesan'] : '');
-        if ($lgin == 'login') {
-            echo  "<script type='text/javascript'>
-                  Swal.fire({
-                      position: 'Center',
-                      icon  : 'success',
-                      title : 'Selamat ..!!<br>Anda Berhasil Login',
-                      showConfirmButton: false,
-                      timer : 1500
-                      })
-                  </script>";
-        }
 
         $bt = (isset($_GET['pesan']) ? $_GET['pesan'] : '');
         if ($bt == 'berhasil-terkirim') {
