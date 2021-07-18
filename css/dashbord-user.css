@@ -1,0 +1,114 @@
+/* Carousel*/
+.carousel-item h1.slogan {
+  font-size: 80px;
+  font-family: "Poppins-BoldItalic";
+  margin-top: -400px;
+  text-align: right;
+  text-transform: capitalize;
+}
+
+@media screen and (max-width: 1025px) {
+  .carousel-item h1.slogan {
+    font-size: 45px;
+    font-family: "Poppins-BoldItalic";
+    margin-top: -220px;
+    text-align: right;
+    text-transform: capitalize;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .carousel-item h1.slogan {
+    font-size: 35px;
+    font-family: "Poppins-BoldItalic";
+    margin-top: -90px;
+    text-align: right;
+    text-transform: capitalize;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .carousel-item h1.slogan {
+    font-size: 5px;
+    font-family: "Poppins-BoldItalic";
+    /* margin-top: -100px; */
+    text-align: right;
+    text-transform: capitalize;
+  }
+}
+
+.carousel-item p.merek {
+  text-align: right;
+  font-family: "Poppins-LightItalic";
+}
+/* Akhir Carousel*/
+
+/* Portfolio */
+.portfolio .lightbox img {
+  width: 100%;
+  transition: 0.2s ease-in-out;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+h1.konten3 {
+  font-family: "Poppins-Bold";
+  text-shadow: 2px 2px 3px whitesmoke;
+}
+
+img.portfolio {
+  width: 100%;
+}
+/* Akhir Portfolio */
+
+/* Service */
+.service-2 {
+  padding: 1.5cm 0;
+}
+
+h6 {
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.card-service {
+  border-radius: 10%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: "Poppins-Light";
+}
+
+h1.service {
+  font-family: "Poppins-Bold";
+}
+
+a.booking {
+  background-color: rgb(66, 66, 66);
+  padding: 13px 15px;
+  text-decoration: none;
+  color: white;
+  border-radius: 25px;
+  display: inline-block;
+}
+
+a.booking:hover {
+  background-color: orange;
+  text-decoration: none;
+  color: white;
+}
+
+p.paket,
+p.card-text {
+  color: black;
+}
+
+p.konten-1 {
+  font-family: "Poppins-Regular";
+}
+
+#service .card-service {
+  border-radius: 25px;
+}
+
+.alert {
+  font-family: "Poppins-Light";
+}
+/* Akhir Service */

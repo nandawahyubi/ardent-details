@@ -1,0 +1,20 @@
+#aksesoris h5 {
+  font-family: "Poppins-Medium";
+}
+
+#aksesoris p {
+  font-family: "Poppins-Light";
+  text-indent: 40px;
+}
+
+.container-fluid .title {
+  margin: 20px 0;
+}
+
+.container-fluid .title h1 {
+  font-family: "Poppins-SemiBold";
+}
+
+.container-fluid .title p {
+  font-family: "Poppins-Light";
+}

@@ -1,0 +1,57 @@
+#pembayaran .background {
+  background-image: linear-gradient(to right top, #000000, #2b1717, #4b2a1a, #614517, #686617);
+  box-shadow: 2px 2px 10px gray, -2px -2px 10px grey;
+  border-radius: 10px;
+  width: 100%;
+  margin: 30px auto;
+}
+
+form {
+  margin: 10px 50px;
+}
+
+#pembayaran .background h1 {
+  font-family: "Poppins-Bold", Verdana, sans-serif;
+  font-size: 30px;
+  color: white;
+}
+
+h5.step-1 {
+  text-decoration: underline;
+}
+
+label {
+  font-size: 15px;
+  color: white;
+  padding-left: 10px;
+  font-family: "Poppins-Light";
+}
+
+#pembayaran form hr.isi {
+  height: 1px;
+  border: none;
+  background-color: white;
+}
+
+input[type="text"],
+[type="tel"],
+[type="email"] {
+  max-width: 400px;
+}
+
+#pembayaran input[value] {
+  color: black;
+}
+
+textarea.alamat {
+  max-width: 400px;
+}
+
+select.tahun-pembuatan {
+  max-width: 400px;
+}
+
+h5.step-1 {
+  font-family: "Poppins-SemiBold";
+  color: whitesmoke;
+}

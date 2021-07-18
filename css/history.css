@@ -1,0 +1,10 @@
+#tabel .tabel {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+#tabel h3 {
+  font-family: "Poppins-SemiBoldItalic";
+  text-decoration: underline;
+}

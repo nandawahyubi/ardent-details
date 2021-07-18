@@ -1,0 +1,16 @@
+#details .card-body h3 {
+    font-family: "Poppins-Medium";
+}
+
+#details .card-body .form-grub {
+    font-family: "Poppins-Light";
+}
+
+#details .card-body .form-grub label {
+    margin-bottom: 3px;
+    font-weight: bold;
+}
+
+#details .card-body .form-grub input {
+    border-left: 5px solid rgb(104, 104, 241);
+}

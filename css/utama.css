@@ -1,0 +1,473 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Navbar */
+  /* nav.navbar {
+    position: absolute;
+    z-index: 9999;
+    left: 0;
+    right: 0;
+  } */
+
+   #Navbar .container-fluid {
+    background-color: rgba(0, 0, 0, 0.932);
+  }
+
+  /* nav.navbar {
+    background-color: transparent;
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    right: 0;
+  } */
+
+  .navbar img.logo-atas {
+    width: 20vw;
+    height: auto;
+  }
+  
+  .navbar a.nav-link {
+    font-size: 15px;
+    font-family: "Poppins-Regular";
+    text-transform: capitalize;
+    text-align: center;
+  }
+  
+  .navbar a span {
+    font-family: "Poppins-Medium";
+    color: orange;
+  }
+  .navbar a.btn {
+    border-radius: 20px;
+    font-size: 15px;
+    font-family: "Poppins-Light";
+    font-weight: bold;
+    width: 90px;
+    margin:7px auto;
+  }
+  
+  
+  .navbar a span:hover::after {
+    content: '';
+    border-bottom: 3px solid white;
+    display: block;
+    width: 50%;
+    margin: auto;
+    margin-bottom: -3px;
+  }
+
+  section {
+    padding-top: 4.5rem;
+  }
+  /* Akhir Navbar */
+  
+  /* Carousel*/
+
+
+  /* Versi Ipad */
+  @media screen and (max-width: 768px) {
+    .carousel-inner .carousel-item .carousel-caption h1.slogan {
+      font-size: 45px;
+      font-family: "Poppins-BoldItalic";
+      margin-top: -220px;
+      text-align: right;
+      text-transform: capitalize;
+    }
+
+    .navbar img.logo-atas {
+      width: 35vw;
+      height: auto;
+    }
+  
+    .parent .child-two{
+      display: none;
+    }
+  }
+  
+  /* Versi Ipad Pro */
+  @media screen and (min-width: 769px) {
+    .carousel-inner .carousel-item .carousel-caption h1.slogan {
+      font-size: 60px;
+      font-family: "Poppins-BoldItalic";
+      margin-top: -310px;
+      text-align: right;
+      text-transform: capitalize;
+    }
+  
+    .parent .child-two{
+      display: none;
+    }
+  }
+  
+  /* Versi Laptop */
+  @media screen and (min-width: 1024px) {
+    .carousel-inner .carousel-item .carousel-caption h1.slogan {
+      font-size: 85px;
+      font-family: "Poppins-BoldItalic";
+      margin-top: -470px;
+      text-align: right;
+      text-transform: capitalize;
+    }
+  
+    .parent .child-two{
+      display: inline;
+    }
+  }
+  
+  .carousel-item img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Akhir Carousel*/
+  
+  /* About */
+  
+  .parent {
+    width: 100%;
+    height: auto;
+    margin-top: 45px;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* align-content: center; jika ada flex-wrap : wrap; . baru gunakan ini */
+  }
+  
+  .parent .child-one h1.about {
+    font-family: "Poppins-SemiBold";
+    font-size: 35px;
+  }
+  
+  .parent .child-one span.about {
+    font-family: "Poppins-Light";
+    font-size: 20px;
+    line-height: 25px;
+    display: block;
+  }
+  
+  .parent .child-one ul {
+    list-style-type: square;
+  }
+  
+  .parent .child-one ul li {
+    font-family: "Poppins-Light";
+    line-height: 25px;
+    padding-left: 7px;
+  }
+  
+  .child-one {
+    width: 600px;
+    min-height: 600px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .child-two {
+    width: 700px;
+    height: 530px;
+  }
+  
+  /* Akhir About */
+  
+  /* Content-1 */
+  
+  .content-1 {
+    padding: 1.5cm 0.5cm;
+  }
+  
+  .content-1 h1.mengajak {
+    font-family: "Poppins-SemiBoldItalic";
+    font-size: 35px;
+    line-height: 50px;
+  }
+  
+  .content-1 .row .column-why {
+    height: 215px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .content-1 .row span.why {
+    font-family: "Poppins-Medium";
+  }
+  
+  /* Akhir Content-1 */
+  
+  /* Proses */
+  
+  .proses h2 {
+    font-family: "Poppins-BoldItalic";
+    margin: 0;
+  }
+  
+  .proses img {
+    width: 100%;
+  }
+  
+  .proses ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .proses ul li {
+    font-family: "Poppins-Light";
+  }
+  
+  /* Akhir Proses */
+  
+  /* Portfolio */
+  
+  div.portfolio {
+    padding: 30px 0;
+  }
+  
+  .portfolio .lightbox img {
+    width: 100%;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1.konten3 {
+    font-family: "Poppins-Bold";
+    text-shadow: 2px 2px 3px whitesmoke;
+  }
+  
+  img.portfolio {
+    width: 100%;
+  }
+  
+  /* Akhir Portfolio */
+  
+  /* Product */
+  
+  #product p.konten-1 {
+    font-family: "Poppins-Medium";
+  }
+  
+  #product .card-body p.konten-1 {
+    font-family: "Poppins-Light";
+  }
+  
+  .product-2 {
+    padding: 1cm 0;
+  }
+  
+  img.gambar-aksesoris {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+  }
+  
+  /* Akhir Product */
+  
+  /* Service */
+  
+  #service p.konten-1 {
+    font-family: "Poppins-Light";
+  }
+  
+  .service-2 {
+    padding: 0.5cm 0;
+  }
+  
+  h6 {
+    font-size: 13px;
+    line-height: 20px;
+  }
+  
+  .service-2 .card-service {
+    border-radius: 10%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: "Poppins-Light";
+  }
+  
+  .service-2 h1.service {
+    font-family: "Poppins-Bold";
+  }
+  
+  .service-2 a.booking {
+    background-color: rgb(66, 66, 66);
+    padding: 13px 15px;
+    text-decoration: none;
+    color: white;
+    border-radius: 25px;
+    display: inline-block;
+  }
+  
+  .service-2 a.booking:hover {
+    background-color: orange;
+  }
+  
+  .service-2 .alert {
+    font-family: "Poppins-Light";
+  }
+
+  /* Akhir Service */
+  
+  /* Pertanyaan */
+  
+  #pertanyaan .accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    font-family: "Poppins-Medium";
+  }
+  
+  #pertanyaan .active, .accordion:hover {
+    background-color: orange;
+  }
+  
+  #pertanyaan .accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  #pertanyaan .active:after {
+    content: "\2212"; /* Unicode character for "minus" sign (-) */
+  }
+  
+  #pertanyaan .panel {
+    padding: 0 18px;
+    background-color: white;
+    border-left:3px solid #3b4661;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    font-family: "Poppins-Light";
+  }
+  
+  /* Akhir Pertanyaan */
+  
+  /* Kontak */
+
+  hr {
+    border: none;
+    height: 1.5px;
+    /* Set the hr color */
+    color: #333;
+    background-color: #333;
+  }
+  
+  form input.kosong {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 15px;
+  }
+  
+  form input.tombol {
+    width: 100px;
+    border: none;
+    color: black;
+    padding: 10px;
+    font-family: "Poppins-Medium", Verdana;
+    letter-spacing: 1px;
+    font-size: 15px;
+  }
+  
+  label {
+    font-family: "Poppins-Medium", Verdana;
+    color: white;
+  }
+  
+  form input.tombol:hover {
+    background-color: orange;
+  }
+  
+  textarea {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  h3.hello {
+    font-family: "Poppins-BoldItalic";
+    font-size: 50px;
+    color: orange;
+    rotate: 25%;
+  }
+  
+  h3.isi {
+    font-family: "Poppins-LightItalic";
+    font-size: 27px;
+  }
+  
+  h4.nama-toko {
+    font-family: "Poppins-Light";
+    font-weight: bolder;
+    font-size: 20px;
+  }
+  
+  p.jalan {
+    font-family: "Poppins-Light";
+    font-size: 13px;
+  }
+  
+  .kontak {
+    background-image: url("../img/index/contact.png");
+  }
+  
+  .icon a i {
+    color: white;
+    font-size: 30px;
+    margin-right: 5px;
+  }
+  /* Akhir Kontak */
+  
+  #myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: orange;
+    cursor: pointer;
+    padding: 3px 10px;
+    border-radius: 11px;
+  }
+  
+  #myBtn a {
+    color: white;
+  }
+  
+  /* Footer */
+
+  .footer {
+    background-color: #262c3b;
+  }
+  
+  .logo-bawah {
+    font-family: "Poppins-Regular";
+    font-size: 13px;
+    color: white;
+  }
+  
+  p.logo-bawah {
+    font-family: "Poppins-Medium";
+    font-size: 15px;
+  }
+  

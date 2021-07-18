@@ -1,0 +1,26 @@
+.card.pp-ua {
+    max-width: 400px;
+}
+
+.card.pp-ua .card-header {
+    font-family: "Poppins-Medium";
+}
+
+.card.pp-ua .card-body .form-grub label {
+    margin: 0;
+    padding: 10px 0 3px;
+}
+
+.card.pp-ua .card-body a {
+    font-family: "Poppins-Regular";
+}
+
+.card.pp-ua .card-body .form input {
+    font-family: "Poppins-Light";
+    border-left: 3px solid rgb(84, 84, 247);
+}
+
+.card.pp-ua .card-body .form textarea {
+    font-family: "Poppins-Light";
+    border-left: 3px solid rgb(84, 84, 247);
+}
