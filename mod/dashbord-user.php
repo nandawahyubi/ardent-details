@@ -250,11 +250,11 @@
     <!-- End of Begin Page Content -->
 
     <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded-circle" href="#page-top">
+    <a class="scroll-to-top rounded-circle bg-warning" href="#page-top">
         <i class="fas fa-angle-double-up"></i>
     </a>
 
-    <?php include 'script.php' ?>
+    <?php include 'script.php'; ?>
 
     <?php
 
@@ -265,7 +265,7 @@
                         toast: true,
                         position: 'top-end',
                         showConfirmButton: false,
-                        timer: 1500,
+                        timer: 2000,
                         timerProgressBar: true,
                         didOpen: (toast) => {
                           toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -287,7 +287,7 @@
                         toast: true,
                         position: 'top-end',
                         showConfirmButton: false,
-                        timer: 1500,
+                        timer: 2000,
                         timerProgressBar: true,
                         didOpen: (toast) => {
                           toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -302,27 +302,6 @@
                   </script>";
         }
 
-        $fts = (isset($_GET['pesan']) ? $_GET['pesan'] : '');
-        if ($fts == 'format-tidak-sesuai') {
-            echo  "<script type='text/javascript'>
-                      const Toast = Swal.mixin({
-                        toast: true,
-                        position: 'top-end',
-                        showConfirmButton: false,
-                        timer: 1500,
-                        timerProgressBar: true,
-                        didOpen: (toast) => {
-                          toast.addEventListener('mouseenter', Swal.stopTimer)
-                          toast.addEventListener('mouseleave', Swal.resumeTimer)
-                        }
-                      })
-                      
-                      Toast.fire({
-                        icon: 'error',
-                        title: 'Format photo tidak sesuai deskripsi.!'
-                      })
-                  </script>";
-        }
     ?>
 
  </body>

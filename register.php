@@ -64,7 +64,13 @@
                                     <input type="text" class="form-control form-control-user" id="name" name="name" placeholder="Full Name" autofocus required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="email" name="email" placeholder="Email Address" required>
+                                    <input type="email" class="form-control form-control-user" id="email" name="email" placeholder="Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control form-control-user" id="no_telp" name="no_telp" placeholder="Phone Number">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="alamat" name="alamat" placeholder="Address">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">

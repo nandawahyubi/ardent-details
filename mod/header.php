@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="../css/product.css">
   <link rel="stylesheet" href="../css/history.css">
   <link rel="stylesheet" href="../css/profile.css">
-  <link rel="stylesheet" href="../css/custom-upload-pp.css">
+  <link rel="stylesheet" href="../css/custom-upload-profile.css">
   <link rel="stylesheet" href="../css/ubah-password.css">
 
   <!-- Custom styles for this template-->

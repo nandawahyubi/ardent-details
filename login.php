@@ -43,12 +43,15 @@ if (isset($_POST["login"])){
         if (password_verify($password, $row["password"])) {
             // set session
             if ($row['level'] == "user") {
-                $_SESSION["login"]  = true;
-                $_SESSION['id']     = $row['id'];
-                $_SESSION['name']   = $row['name'];
-                $_SESSION['email']  = $row['email'];
-                $_SESSION['pass']   = $row['password'];
-                $_SESSION['level']  = $row['level'];
+                $_SESSION["login"]   = true;
+                $_SESSION['id']      = $row['id'];
+                $_SESSION['name']    = $row['name'];
+                $_SESSION['email']   = $row['email'];
+                $_SESSION['no_telp'] = $row['no_telp'];
+                $_SESSION['alamat']  = $row['alamat'];
+                $_SESSION['pass']    = $row['password'];
+                $_SESSION['level']   = $row['level'];
+                $_SESSION['pp']      = $row['pp'];
 
                 // cek remember me
                 if (isset($_POST['remember'])) {
@@ -59,14 +62,18 @@ if (isset($_POST["login"])){
 
                 $_SESSION['sukses'] = 'Anda Berhasil Login';
                 header("Location: mod/dashbord-user.php");
+                exit;
                 
             } elseif ($row['level'] == "admin") {
-                $_SESSION["login"]  = true;
-                $_SESSION['id']     = $row['id'];
-                $_SESSION['name']   = $row['name'];
-                $_SESSION['email']  = $row['email'];
-                $_SESSION['pass']   = $row['password'];
-                $_SESSION['level']  = $row['level'];
+                $_SESSION["login"]   = true;
+                $_SESSION['id']      = $row['id'];
+                $_SESSION['name']    = $row['name'];
+                $_SESSION['email']   = $row['email'];
+                $_SESSION['no_telp'] = $row['no_telp'];
+                $_SESSION['alamat']  = $row['alamat'];
+                $_SESSION['pass']    = $row['password'];
+                $_SESSION['level']   = $row['level'];
+                $_SESSION['pp']      = $row['pp'];
 
                 // cek remember me
                 if (isset($_POST['remember'])) {
@@ -77,6 +84,7 @@ if (isset($_POST["login"])){
 
                 $_SESSION['sukses'] = 'Anda Berhasil Login';
                 header("Location: mod/dashbord-admin.php");
+                exit;
             }
         }
     }

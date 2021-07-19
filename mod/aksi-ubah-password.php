@@ -18,7 +18,7 @@
         if (password_verify($pswdLama, $data['password'])) {
     
             if ($pswdBaru != $ulngPswd) {
-                $_SESSION['error'] = 'Password Tidak Sesuai.!';
+                $_SESSION['error'] = 'Password Tidak Sesuai !';
                 header("location:ubah-password.php");
                 exit;
             }
@@ -27,7 +27,7 @@
 
                 mysqli_query($koneksi, "UPDATE user SET password = '$pswdBaru' WHERE id = '$id'");
 
-                return mysqli_affected_rows($koneksi);//jika berhasil menghasilkan angka 1, jika gagal menghasilkan angka -1
+                // return mysqli_affected_rows($koneksi);//jika berhasil menghasilkan angka 1, jika gagal menghasilkan angka -1
 
                 $_SESSION['sukses'] = 'Sandi Berhasil Diubah';
 			    header("location:ubah-password.php");
@@ -35,7 +35,7 @@
             }
         }
         else {
-            $_SESSION['error'] = 'Password Lama Tidak Sesuai.!';
+            $_SESSION['error'] = 'Password Lama Tidak Sesuai !';
             header("location:ubah-password.php");
             exit;
         }

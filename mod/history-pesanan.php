@@ -170,7 +170,7 @@
     <!-- End of Begin Page Content -->
 
     <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded-circle" href="#page-top">
+    <a class="scroll-to-top rounded-circle bg-warning" href="#page-top">
         <i class="fas fa-angle-double-up"></i>
     </a>
 

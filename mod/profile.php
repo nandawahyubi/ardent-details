@@ -9,7 +9,7 @@
 
     include '../koneksi.php'; 
     $email  = $_SESSION['email'];
-    $query  = mysqli_query($koneksi,"SELECT * FROM tb_pelanggan WHERE email = '$email'");
+    $query  = mysqli_query($koneksi,"SELECT * FROM user WHERE email = '$email'");
     $tampil = mysqli_fetch_assoc($query);
     // $aksi   = "modul/mod_profil/aksi_profil.php";
 
@@ -44,31 +44,33 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="aksi-profile.php?aksi=profile" method="post" enctype="multipart/form-data" class="p-0 m-0">
+                <?php 
+                    include "../koneksi.php";
+                    $id     = $_SESSION['id'];
+                    $query  = mysqli_query($koneksi,"SELECT * FROM user WHERE id='$id'");
+                    $data   = mysqli_fetch_assoc($query);
+                ?>
                     <div class="bungkus-pp">
                         <div class="profile-pic-div">
-                            <img src="../img/plch-pp.jpg" id="photo">
-                            <input type="file" id="file">
+                            <img src="../img/pp/<?= $tampil['pp']; ?>" id="photo">
+                            <input type="file" id="file" name="foto" value="<?= $tampil['pp']; ?>">
                             <label for="file" id="uploadBtn">Choose Photo</label>
                         </div>
                     </div>
                     <div class="row justify-content-center form">
                         <div class="col-md">
-                            <!-- <div class="form-grub">
-                                <label class="text-dark">Id Pelanggan</label>
-                                <input type="text" class="form-control"  name="id_user" 
-                                    value="<?php echo $id_pel; ?>">
-                                <input type="text" class="form-control" name="id" readonly="" 
-                                    value="<?php echo $tampil['id_pelanggan']; ?>">
-                            </div> -->
+                            <div class="from-grub">
+                                <input type="text" hidden name="id_user" id="id_user" value="<?php echo $data['id']; ?>">
+                            </div>
                             <div class="form-grub">
                                 <label class="text-dark">Nama</label>
                                 <input type="text" class="form-control" name="nama" 
-                                    value="<?php echo $tampil['nama_pelanggan']; ?>">
+                                    value="<?php echo $tampil['name']; ?>">
                             </div>
                             <div class="form-grub">
                                 <label class="text-dark">Email</label>
-                                <input type="text" class="form-control" name="nama" 
+                                <input type="text" class="form-control" name="email" 
                                     value="<?php echo $tampil['email']; ?>" readonly>
                             </div>
                             <div class="form-grub">
@@ -82,9 +84,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row justify-content-between">
-                        <a href="#" type="submit" class="btn btn-success mt-3 ml-3">Simpan</a>
-                        <a href="#" onclick="history.go(-1)" class="btn btn-primary mt-3 mr-3">Kembali</a>
+                    <div class="row justify-content-between mt-3 mb-3">
+                        <!-- <a href="#" type="submit" class="btn btn-success mt-3 ml-3">Simpan</a>
+                        <a href="#" onclick="history.go(-1)" class="btn btn-primary mt-3 mr-3">Kembali</a> -->
+                        <button type="submit" class="btn btn-success ml-3">Simpan</button>
+                        <button type="button" onclick="history.go(-1)" class="btn btn-primary mr-3">Kembali</button>
                     </div>
                 </form>
             </div>

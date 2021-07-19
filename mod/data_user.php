@@ -124,8 +124,10 @@
                                     <th scope="col">No</th>
                                     <th scope="col">Nama</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Password</th>
-                                    <th scope="col">Level</th>
+                                    <th scope="col">No Hp</th>
+                                    <th scope="col">Alamat</th>
+                                    <!-- <th scope="col">Password</th>
+                                    <th scope="col">Level</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -145,8 +147,8 @@
                                             <th>$no</th>
                                             <td>$tampilkan[name]</td>
                                             <td>$tampilkan[email]</td>
-                                            <td>$tampilkan[password]</td>
-                                            <td>$tampilkan[level]</td>
+                                            <td>$tampilkan[no_telp]</td>
+                                            <td>$tampilkan[alamat]</td>
                                         </tr>
                                         ";
                                     $no++;
@@ -170,47 +172,6 @@
     </a>
 
     <?php include 'script.php' ?>
-
-    <!-- Photo -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
-    <script>
-        var scroll = new SmoothScroll('a[href*="#"]');
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            $(".fancybox-thumb").fancybox({
-                prevEffect: 'none',
-                nextEffect: 'none',
-                helpers: {
-                    title: {
-                        type: 'outside'
-                    },
-                    thumbs: {
-                        width: 50,
-                        height: 50
-                    }
-                }
-            });
-        });
-    </script>
-
-    <?php
-        $act = (isset($_GET['pesan']) ? $_GET['pesan'] : '');
-        if ($act == 'login') {
-            echo    "<script type='text/javascript'>
-                    Swal.fire({
-                        position: 'Center',
-                        icon: 'success',
-                        title: 'Selamat !<br>Anda Berhasil Login',
-                        showConfirmButton: false,
-                        timer: 1500
-                        })
-                    </script>";
-        }
-    ?>
 
  </body>
 

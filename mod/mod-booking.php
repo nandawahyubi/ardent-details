@@ -5,6 +5,7 @@
                 </div>
                 
                 <form action="aksi.php" method="post" enctype="multipart/form-data">
+                  <div hidden>
                   <!-- Data Pelanggan -->
                   <h5 class="step-1 pl-5">Data Pelanggan</h5>
                   <input type="text" hidden name="id_pelanggan" value="<?php echo $kodeBarang; ?>">
@@ -16,7 +17,7 @@
                   </div>
                   <div class="form-group">
                       <label for="nomor-hp">Nomor Hp</label>
-                      <input type="tel" class="form-control form-control-sm" id="nomor-hp" name="nomor-hp" placeholder="Masukkan nomor handphone anda" required>
+                      <input type="tel" class="form-control form-control-sm" id="nomor-hp" name="nomor-hp" placeholder="Masukkan nomor handphone anda" value="<?php echo $_SESSION['no_telp']; ?>" required>
                   </div>
                   <div class="form-group">
                       <label for="email">Email</label>
@@ -24,10 +25,11 @@
                   </div>
                   <div class="form-group">
                       <label for="alamat">Alamat</label>
-                      <textarea class="form-control alamat" rows="2" id="alamat" name="alamat" placeholder="Masukkan alamat tempat tinggal anda" required></textarea>
+                      <textarea class="form-control alamat" rows="2" id="alamat" name="alamat" placeholder="Masukkan alamat tempat tinggal anda" required><?php echo $_SESSION['alamat']; ?></textarea>
                   </div>
                   <hr class="isi">
                   <!-- Akhir Data Pelanggan -->
+                  </div>
 
                   <!-- Data Kendaraan -->
                   <h5 class="step-1 pl-5">Data Kendaraan</h5>
@@ -142,6 +144,7 @@
                     </div>
 
                     <!-- Modal -->
+                    <section id="modal-bt">
                     <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
@@ -181,6 +184,7 @@
                         </div>
                       </div>
                     </div>
+                    </section>
                 </form>
             </div>
         </section>

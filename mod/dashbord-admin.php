@@ -123,8 +123,10 @@
                                     <th scope="col">No</th>
                                     <th scope="col">Nama</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Password</th>
-                                    <th scope="col">Level</th>
+                                    <th scope="col">No Hp</th>
+                                    <th scope="col">Alamat</th>
+                                    <!-- <th scope="col">Password</th>
+                                    <th scope="col">Level</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -144,8 +146,8 @@
                                             <th>$no</th>
                                             <td>$tampilkan[name]</td>
                                             <td>$tampilkan[email]</td>
-                                            <td>$tampilkan[password]</td>
-                                            <td>$tampilkan[level]</td>
+                                            <td>$tampilkan[no_telp]</td>
+                                            <td>$tampilkan[alamat]</td>
                                         </tr>
                                         ";
                                     $no++;
@@ -210,7 +212,7 @@
     <!-- End of Begin Page Content -->
 
     <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded-circle" href="#page-top">
+    <a class="scroll-to-top rounded-circle bg-warning" href="#page-top">
         <i class="fas fa-angle-double-up"></i>
     </a>
 

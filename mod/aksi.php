@@ -1,14 +1,14 @@
 <?php 
 
-include '../koneksi.php';
+	include '../koneksi.php';
 
-use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\PHPMailer;
 
-require_once '../phpmailer/Exception.php';
-require_once '../phpmailer/PHPMailer.php';
-require_once '../phpmailer/SMTP.php';
+	require_once '../phpmailer/Exception.php';
+	require_once '../phpmailer/PHPMailer.php';
+	require_once '../phpmailer/SMTP.php';
 
-$mail = new PHPMailer(true);
+	$mail = new PHPMailer(true);
 
 	$id_pelanggan 	= $_POST['id_pelanggan'];
 	$id_kendaraan 	= $_POST['id_kendaraan'];
@@ -27,7 +27,7 @@ $mail = new PHPMailer(true);
 	$transfer 	= mysqli_escape_string($koneksi, $_POST['transfer']);
 	$gambar 	= $_FILES['gambar']['name'];
 
-	$eksenti_diperbolehkan = array('jpg','jpeg','png');
+	$eksenti_diperbolehkan = array('jpg','jpeg','png','pdf');
 	$x 			= explode(".", $gambar);
 	$eksetensi 	= strtolower(end($x));
 	$file_temp 	= $_FILES['gambar']['tmp_name'];
@@ -115,13 +115,16 @@ $mail = new PHPMailer(true);
 				$send = $mail->send();
 
 				if($send){
+					// $_SESSION['sukses'] = 'Pesanan Anda Berhasil Terkirim';
+					// header("location:dashbord-user.php");
+					// exit;
 					echo "<script>
-						window.location='dashbord-user.php?pesan=berhasil-terkirim';
-					</script>";
+							window.location='dashbord-user.php?pesan=berhasil-terkirim';
+						 </script>";
 				}else{
 					echo "<script>
-						window.location='booking.php?pesan=gagal-terkirim';
-					</script>";
+							window.location='booking.php?pesan=gagal-terkirim';
+						 </script>";
 				}
 
 				// 	echo "<script>
@@ -131,11 +134,19 @@ $mail = new PHPMailer(true);
 				// 	echo "<script>
 				// 			alert('Pesanan gagal terkirim.!!');window.location='booking.php';
 				// 		</script>";
+			} else {
+				echo "<script>
+							window.location='booking.php?pesan=gagal-terkirim';
+				 	  </script>";
 			}
 	} else {
+		// $_SESSION['error'] = 'Format Photo Tidak Sesuai Deskripsi !';
+		// header("location:booking.php");
+		// exit;
 		echo "<script>
-				alert('<?=pesan=format-tidak-sesuai?>');window.history.go(-1);
-			</script>";
-		}
+					window.location='booking.php?pesan=format-tidak-sesuai';
+			  </script>";
+		
+	}
 
  ?>
