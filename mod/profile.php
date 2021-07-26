@@ -6,12 +6,10 @@
         exit;
     }
 
-
     include '../koneksi.php'; 
     $email  = $_SESSION['email'];
     $query  = mysqli_query($koneksi,"SELECT * FROM user WHERE email = '$email'");
     $tampil = mysqli_fetch_assoc($query);
-    // $aksi   = "modul/mod_profil/aksi_profil.php";
 
 ?>
 

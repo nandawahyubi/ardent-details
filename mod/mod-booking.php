@@ -1,4 +1,32 @@
-<section id="pembayaran">
+          <?php 
+            include '../koneksi.php';
+            $email = $_SESSION['email'];
+            $query = mysqli_query($koneksi, "SELECT tb_booking.*, tb_kendaraan.*, tb_pelanggan.* FROM tb_booking LEFT JOIN tb_kendaraan ON tb_booking.id_kendaraan = tb_kendaraan.id_kendaraan LEFT JOIN tb_pelanggan ON tb_booking.id_pelanggan = tb_pelanggan.id_pelanggan WHERE tb_pelanggan.email = '$email' ORDER BY tb_booking.id_pelanggan DESC");
+            $cek_status = mysqli_fetch_assoc($query);
+          ?>
+          
+          <div class="card text-center info" style="display: <?php if(!isset($cek_status['status'])){
+                                                                        echo "none";
+                                                                      } elseif ($cek_status['status']==1){
+                                                                        echo "none";
+                                                                      } else {
+                                                                        echo "block";
+                                                                      } ?>; margin-bottom: 20px;">
+            <h5 class="card-header bg-secondary text-white">Pemberitahuan !</h5>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p>terimakasih telah melakukan booking <br> untuk mengubah jadwal booking silahkah hubungi admin kami.</p>
+              </blockquote>
+              <a href="https://api.whatsapp.com/send?phone=6282272417131&text=Saya%20ingin%20ubah%20jadwal%20booking" target="_blank" class="btn btn-primary">Admin</a>
+            </div>
+          </div>
+          
+          <section id="pembayaran" style="display: <?php if($cek_status['status']==0)
+                                                          {echo "none";}
+                                                          else{echo "block";} ?>;">
+            <div class="alert alert-warning m-0 col-6" role="alert">
+              <strong>Penting! </strong><u>Lakukan Pemesanan Sehari Sebelum Anda Mau Booking</u>
+            </div>
             <div class="background">
                 <div class="row justify-content-center pt-4 pb-3 m-0">
                     <h1>Pemesanan</h1>
@@ -6,29 +34,29 @@
                 
                 <form action="aksi.php" method="post" enctype="multipart/form-data">
                   <div hidden>
-                  <!-- Data Pelanggan -->
-                  <h5 class="step-1 pl-5">Data Pelanggan</h5>
-                  <input type="text" hidden name="id_pelanggan" value="<?php echo $kodeBarang; ?>">
-                  <input type="text" hidden name="id_kendaraan" value="<?php echo $kodeBarang2; ?>">
-                  <input type="text" hidden name="id_booking" value="<?php echo $kodeBarang3; ?>">
-                  <div class="form-group">
-                      <label for="nama">Nama</label>
-                      <input type="text" class="form-control form-control-sm" id="nama" name="nama" placeholder="Masukkan nama lengkap anda" value="<?php echo ucwords($_SESSION['name']); ?>" required>
-                  </div>
-                  <div class="form-group">
-                      <label for="nomor-hp">Nomor Hp</label>
-                      <input type="tel" class="form-control form-control-sm" id="nomor-hp" name="nomor-hp" placeholder="Masukkan nomor handphone anda" value="<?php echo $_SESSION['no_telp']; ?>" required>
-                  </div>
-                  <div class="form-group">
-                      <label for="email">Email</label>
-                      <input type="email" class="form-control form-control-sm" id="email" name="email" placeholder="Masukkan alamat email anda" value="<?php echo strtolower($_SESSION['email']); ?>" required>
-                  </div>
-                  <div class="form-group">
-                      <label for="alamat">Alamat</label>
-                      <textarea class="form-control alamat" rows="2" id="alamat" name="alamat" placeholder="Masukkan alamat tempat tinggal anda" required><?php echo $_SESSION['alamat']; ?></textarea>
-                  </div>
-                  <hr class="isi">
-                  <!-- Akhir Data Pelanggan -->
+                    <!-- Data Pelanggan -->
+                    <h5 class="step-1 pl-5">Data Pelanggan</h5>
+                    <input type="text" hidden name="id_pelanggan" value="<?php echo $kodeBarang; ?>">
+                    <input type="text" hidden name="id_kendaraan" value="<?php echo $kodeBarang2; ?>">
+                    <input type="text" hidden name="id_booking" value="<?php echo $kodeBarang3; ?>">
+                    <div class="form-group">
+                        <label for="nama">Nama</label>
+                        <input type="text" class="form-control form-control-sm" id="nama" name="nama" placeholder="Masukkan nama lengkap anda" value="<?php echo ucwords($_SESSION['name']); ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nomor-hp">Nomor Hp</label>
+                        <input type="tel" class="form-control form-control-sm" id="nomor-hp" name="nomor-hp" placeholder="Masukkan nomor handphone anda" value="<?php echo $_SESSION['no_telp']; ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control form-control-sm" id="email" name="email" placeholder="Masukkan alamat email anda" value="<?php echo strtolower($_SESSION['email']); ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="alamat">Alamat</label>
+                        <textarea class="form-control alamat" rows="2" id="alamat" name="alamat" placeholder="Masukkan alamat tempat tinggal anda" required><?php echo $_SESSION['alamat']; ?></textarea>
+                    </div>
+                    <hr class="isi">
+                    <!-- Akhir Data Pelanggan -->
                   </div>
 
                   <!-- Data Kendaraan -->
@@ -36,7 +64,7 @@
                   <div class="form-group">
                       <label for="merk">Merek</label>
                       <input type="text" class="form-control form-control-sm" id="merk" name="merk" placeholder="Merek Kendaraan" required>
-                      <small id="disable-value" class="form-text text-muted">*Contoh : Honda CR-V</small>
+                      <small id="disable-value" class="form-text text-muted" style="font-size: 15px;">*Contoh : Honda CR-V</small>
                   </div>
                   <div class="form-group">
                       <label for="warna">Warna</label>
@@ -44,17 +72,11 @@
                   </div>
                   <div class="form-group">
                       <label for="tahun-pembuatan">Tahun Pembuatan</label>
-                      <select class="form-control form-control-sm tahun-pembuatan" name="startyear" id="startyear" required>
-                      <option value="">Pilih Tahun Pembuatan</option>
-                        <?php
-                        for ($year = (int)date('Y'); 1900 <= $year; $year--): ?>
-                            <option value="<?=$year;?>"><?=$year;?></option>
-                        <?php endfor; ?>
-                      </select>
+                      <input type="text" id="yearpicker" class="form-control form-control-sm datetimepicker-input" data-toggle="datetimepicker" data-target="#yearpicker" autocomplete="off" placeholder="Pilih Tahun Pembuatan" name="startyear" id="startyear" required/>
                   </div>
                   <div class="form-group">
                       <label for="no-polisi">No Polisi</label>
-                      <input type="text" class="form-control form-control-sm" id="no-polisi" name="no-polisi" placeholder="Plat nomor kendaraan" required>
+                      <input type="text" class="form-control form-control-sm" id="no-polisi" name="no-polisi" placeholder="Plat Nomor Kendaraan" required>
                   </div>
                   <hr class="isi">
                   
@@ -69,17 +91,17 @@
                           <div class="col-sm-10">
                               <div class="form-check">
                                 <input class="form-check-input" type="radio" name="paket" id="sncc" value="Signature Nano Ceramic Coating by Crystal Shield" style="margin-top: 6px;" required>
-                                <label class="form-check-label" for="sncc">Signature Nano Ceramic Coating by Crystal Shield
+                                <label class="form-check-label p-0" for="sncc">Signature Nano Ceramic Coating by Crystal Shield
                                 </label>
                               </div>
                               <div class="form-check">
                                 <input class="form-check-input" type="radio" name="paket" id="sncbc" value="Signature Nano Crystal Based Coating by Crystal Shield" style="margin-top: 6px;" required>
-                                <label class="form-check-label" for="sncbc">Signature Nano Crystal Based Coating by Crystal Shield
+                                <label class="form-check-label p-0" for="sncbc">Signature Nano Crystal Based Coating by Crystal Shield
                                 </label>
                               </div>
                               <div class="form-check">
                                 <input class="form-check-input" type="radio" name="paket" id="sdc" value="Signature Diamond Coating by Crystal Shield" style="margin-top: 6px;" required>
-                                <label class="form-check-label" for="sdc">Signature Diamond Coating by Crystal Shield
+                                <label class="form-check-label p-0" for="sdc">Signature Diamond Coating by Crystal Shield
                                 </label>
                               </div>
                           </div>
@@ -99,7 +121,7 @@
                   <fieldset disabled>
                     <div class="form-group">
                         <label for="booking">DP</label>
-                        <input type="text" id="rupiah" name="booking" class="form-control form-control-sm"  style="max-width:200px; text-align: right;" value="<?php 
+                        <input type="text" id="rupiah" name="booking" class="form-control form-control-sm bg-secondary text-white"  style="max-width:200px; text-align: right; font-size: 19px; font-weight: bold; font-style: italic;" value="<?php 
                                 //membuat format rupiah dengan PHP
                                 function rupiah($angka){
                                 
@@ -111,21 +133,22 @@
                                 echo rupiah(300000);
 
                                 ?>">
-                        <small id="disable-value" class="form-text text-muted">*NB : Jumlah dp sudah di tentukan</small>
+                        <small id="disable-value" class="form-text text-muted" style="font-size: 15px;">*NB : Jumlah dp sudah di tentukan</small>
                     </div>
                   </fieldset>
 
                     <div class="form-group">
                         <label for="waktu">Pilih Jadwal</label><br>
-                        <input type="date" id="dateControl" name="waktu" class="form-control form-control-sm" style="max-width:200px; height: 35px; border-radius: 5px; border: none;" required>
-                        <small id="disable-value" class="form-text text-muted">*NB : Mohon untuk menyerahkan unit di pagi hari (opsi 8.30 - 18.00)</small>
+                        <!-- <input type="date" id="dateControl" name="waktu" class="form-control form-control-sm" style="max-width:200px; height: 35px; border-radius: 5px; border: none;" required> -->
+                        <input type="text" id="datePicker" name="waktu" class="form-control form-control-sm" style="max-width:200px; height: 35px; border-radius: 5px; border: none;" placeholder="Pilih Jadwal Booking" required>
+                        <small id="disable-value" class="form-text text-muted" style="font-size: 15px;">*NB : Mohon untuk menyerahkan unit di pagi hari (opsi 8.30 - 18.00)</small>
                     </div>
 
                     <div class="form-group">
                       <Label for=transfer>Metode Pembayaran</Label>
                       <div class="custom-control custom-radio">
                         <input type="radio" class="custom-control-input" id="transfer" name="transfer" value="transfer" onclick="document.getElementById('gambar').style.display = 'block'" required>
-                        <label class="custom-control-label" for="transfer" style="padding-top: 2px;">Transfer</label>
+                        <label class="custom-control-label pl-0" for="transfer" style="padding-top: 2px;">Transfer</label>
                       </div>
                     </div>
                     <div class="row">

@@ -5,18 +5,6 @@
         header("Location: login.php");
         exit;
     }
-
-    include '../koneksi.php';
-    
-    $id_Pelanggan = $_GET['id'];
-    
-    $no = 1;
-
-    $sql = "SELECT * FROM tb_booking INNER JOIN tb_kendaraan ON tb_booking.id_kendaraan = tb_kendaraan.id_kendaraan INNER JOIN tb_pelanggan ON tb_booking.id_pelanggan = tb_pelanggan.id_pelanggan WHERE tb_pelanggan.id_pelanggan = '$id_Pelanggan'";
-    $ambilData = mysqli_query($koneksi, $sql);
-
-    $tampilkan = mysqli_fetch_array($ambilData);
-
 ?>
  <!DOCTYPE html>
  <html lang="en">
@@ -124,7 +112,7 @@
 
      <!-- Begin Page Content -->
      <div class="container-fluid">
-         <?php include 'details.php' ?>
+         <?php include 'details-history-pesanan.php'; ?>
 
          <?php include 'footer.php'; ?>
      </div>
@@ -135,7 +123,7 @@
          <i class="fas fa-angle-double-up"></i>
      </a>
 
-     <?php include 'script.php' ?>
+     <?php include 'script.php'; ?>
 
  </body>
  </html>

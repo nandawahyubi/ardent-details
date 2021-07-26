@@ -1,3 +1,15 @@
+.card.info h5 {
+  font-family: "Poppins-Medium", Verdana, sans-serif;
+}
+
+.card.info .card-body .blockquote p {
+  font-family: "Poppins-Regular", Verdana, sans-serif;
+}
+
+.card.info .card-body a {
+  font-family: "Poppins-Regular", Verdana, sans-serif;
+}
+
 #pembayaran .background {
   background-image: linear-gradient(to right top, #000000, #2b1717, #4b2a1a, #614517, #686617);
   box-shadow: 2px 2px 10px gray, -2px -2px 10px grey;

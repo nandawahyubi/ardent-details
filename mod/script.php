@@ -15,6 +15,15 @@
 <script src="../js/demo/chart-area-demo.js"></script>
 <script src="../js/demo/chart-pie-demo.js"></script>
 
+<!-- Script datepicker for only years -->
+<script src="../library/datepicker/js/moment.min.js"></script>
+<script src="../library/datepicker/js/custom.js"></script>
+<script src="../library/datepicker/js/tempusdominus-bootstrap-4.min.js"></script>
+
+<!-- Script and Link for datepicker. disable past date and disable sunday -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
 <!-- Script fancybox -->
 <!-- Photo -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
@@ -78,6 +87,23 @@ $(".fancybox-thumb").fancybox({
 
     $('#dateControl').attr('min', maxDate);
   })
+</script>
+
+<!-- datepicker disable sunday and past date -->
+<script>
+    $(document).ready(function () {
+        $("#datePicker").datepicker({
+            minDate: new Date(), //disable past date
+            beforeShowDay:function(date){ //disable sunday
+            var day = date.getDay();
+                if (day==0 || day==7){
+                return[false];
+                } else {
+                return[true];
+                }
+            }
+        });
+    });
 </script>
 
 <!-- Script sweetalert2 for logout -->

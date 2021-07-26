@@ -256,54 +256,6 @@
 
     <?php include 'script.php'; ?>
 
-    <?php
-
-        $bt = (isset($_GET['pesan']) ? $_GET['pesan'] : '');
-        if ($bt == 'berhasil-terkirim') {
-            echo  "<script type='text/javascript'>
-                      const Toast = Swal.mixin({
-                        toast: true,
-                        position: 'top-end',
-                        showConfirmButton: false,
-                        timer: 2000,
-                        timerProgressBar: true,
-                        didOpen: (toast) => {
-                          toast.addEventListener('mouseenter', Swal.stopTimer)
-                          toast.addEventListener('mouseleave', Swal.resumeTimer)
-                        }
-                      })
-                      
-                      Toast.fire({
-                        icon: 'success',
-                        title: 'Pesanan Berhasil Terkirim'
-                      })
-                  </script>";
-        }
-
-        $gt = (isset($_GET['pesan']) ? $_GET['pesan'] : '');
-        if ($gt == 'gagal-terkirim') {
-            echo  "<script type='text/javascript'>
-                      const Toast = Swal.mixin({
-                        toast: true,
-                        position: 'top-end',
-                        showConfirmButton: false,
-                        timer: 2000,
-                        timerProgressBar: true,
-                        didOpen: (toast) => {
-                          toast.addEventListener('mouseenter', Swal.stopTimer)
-                          toast.addEventListener('mouseleave', Swal.resumeTimer)
-                        }
-                      })
-                      
-                      Toast.fire({
-                        icon: 'error',
-                        title: 'Pesanan Gagal Terkirim'
-                      })
-                  </script>";
-        }
-
-    ?>
-
  </body>
 
  </html>

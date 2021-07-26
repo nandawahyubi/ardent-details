@@ -6,6 +6,7 @@
         header("Location: ../login.php");
         exit;
     }
+    
 ?>
 
 <!DOCTYPE html>
@@ -126,31 +127,13 @@
     </a>
 
     <?php include 'script.php'; ?>
-    <?php 
-    
-    $fts = (isset($_GET['pesan']) ? $_GET['pesan'] : '');
-        if ($fts == 'format-tidak-sesuai') {
-            echo  "<script type='text/javascript'>
-                      const Toast = Swal.mixin({
-                        toast: true,
-                        position: 'top-end',
-                        showConfirmButton: false,
-                        timer: 3000,
-                        timerProgressBar: true,
-                        didOpen: (toast) => {
-                          toast.addEventListener('mouseenter', Swal.stopTimer)
-                          toast.addEventListener('mouseleave', Swal.resumeTimer)
-                        }
-                      })
-                      
-                      Toast.fire({
-                        icon: 'error',
-                        title: 'Format photo tidak sesuai deskripsi.!'
-                      })
-                  </script>";
-        }
-    
-    ?>
+
+    <!-- Script datepicker for only years -->
+    <script>
+    $(document).ready(function(){
+        setYearPicker("#yearpicker")
+    });
+    </script>
 
  </body>
 

@@ -19,6 +19,8 @@
     <!-- My CSS -->
     <link rel="stylesheet" href="css/utama.css">
     <link rel="stylesheet" href="css/font.css">
+
+    <link rel="shortcut icon" href="img/index/logo-navbar.png">
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
@@ -722,7 +724,7 @@
                       <label for="phone">Nomor Telepon</label><br>
                       <input class="kosong" type="tel" id="phone" name="phone" placeholder="08xxxxxxxxxx"><br>
                       <label for="message">Pertanyaan atau komentar</label><br>
-                      <textarea id="message" cols="30" rows="4" name="message" placeholder="Tuliskan pertanyaan atau saran anda"></textarea><br>
+                      <textarea id="message" cols="30" rows="4" name="message" placeholder="Tuliskan pertanyaan atau komentar anda"></textarea><br>
                       <input class="tombol bg-warning" type="submit" name="submit" value="Kirim">
                   </form>
               </div>
@@ -759,7 +761,7 @@
 
     <!-- Footer -->
 
-    <section id="footer">
+    <section id="footer" class="p-0">
         <div class="footer container-fluid">
             <div class="row p-4">
                 <div class="col-sm-4 col-md-4">

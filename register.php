@@ -67,10 +67,10 @@
                                     <input type="email" class="form-control form-control-user" id="email" name="email" placeholder="Email" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="tel" class="form-control form-control-user" id="no_telp" name="no_telp" placeholder="Phone Number">
+                                    <input type="tel" class="form-control form-control-user" id="no_telp" name="no_telp" placeholder="Phone Number" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="alamat" name="alamat" placeholder="Address">
+                                    <input type="text" class="form-control form-control-user" id="alamat" name="alamat" placeholder="Address" required>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">

@@ -8,14 +8,14 @@
   <!-- My CSS -->
   <link rel="stylesheet" href="../css/dashbord-user.css">
   <link rel="stylesheet" href="../css/font.css">
-  <link rel="stylesheet" href="../css/details.css">
-  <link rel="stylesheet" href="../css/booking.css">
+  <link rel="stylesheet" href="../css/details-admin.css">
+  <link rel="stylesheet" href="../css/mod-booking.css">
   <link rel="stylesheet" href="../css/product.css">
   <link rel="stylesheet" href="../css/history.css">
   <link rel="stylesheet" href="../css/profile.css">
   <link rel="stylesheet" href="../css/custom-upload-profile.css">
   <link rel="stylesheet" href="../css/ubah-password.css">
-
+  
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin-2.min.css" rel="stylesheet" />
 
@@ -29,6 +29,12 @@
 
   <!-- Link CSS Gallery -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css">
+
+  <!-- CSS datepicker for only years -->
+  <link rel="stylesheet" href="../library/datepicker/css/tempusdominus-bootstrap-4.min.css">
+
+  <!-- Script and Link for datepicker. disable past date and disable sunday -->
+  <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/hot-sneaks/jquery-ui.css">
 
   <title>Ardent Details</title>
 

@@ -6,17 +6,6 @@
         exit;
     }
 
-    include '../koneksi.php';
-    
-    $id_Pelanggan = $_GET['id'];
-    
-    $no = 1;
-
-    $sql = "SELECT * FROM tb_booking INNER JOIN tb_kendaraan ON tb_booking.id_kendaraan = tb_kendaraan.id_kendaraan INNER JOIN tb_pelanggan ON tb_booking.id_pelanggan = tb_pelanggan.id_pelanggan WHERE tb_pelanggan.id_pelanggan = '$id_Pelanggan'";
-    $ambilData = mysqli_query($koneksi, $sql);
-
-    $tampilkan = mysqli_fetch_array($ambilData);
-
 ?>
  <!DOCTYPE html>
  <html lang="en">
@@ -33,7 +22,7 @@
         <?php if ($_SESSION["level"] == "user") { ?>
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="after-login.php">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashbord-user.php">
             <div class="sidebar-brand-text mx-3">Ardent Details</div>
         </a>
 
@@ -41,7 +30,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="after-login.php">
+            <a class="nav-link" href="dashbord-user.php">
                 <i class="fas fa-home"></i><span>Dashboard</span>
             </a>
         </li>
@@ -124,7 +113,7 @@
 
      <!-- Begin Page Content -->
      <div class="container-fluid">
-         <?php include 'details.php' ?>
+         <?php include 'details.php'; ?>
 
          <?php include 'footer.php'; ?>
      </div>
@@ -135,7 +124,7 @@
          <i class="fas fa-angle-double-up"></i>
      </a>
 
-     <?php include 'script.php' ?>
+     <?php include 'script.php'; ?>
 
  </body>
  </html>

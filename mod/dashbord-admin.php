@@ -125,8 +125,6 @@
                                     <th scope="col">Email</th>
                                     <th scope="col">No Hp</th>
                                     <th scope="col">Alamat</th>
-                                    <!-- <th scope="col">Password</th>
-                                    <th scope="col">Level</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -168,7 +166,7 @@
                                     <th scope="col">Merk</th>
                                     <th scope="col">No Polisi</th>
                                     <th scope="col" class="text-center">Jadwal Booking</th>
-                                    <th scope="col" class="text-center">Details</th>
+                                    <th scope="col" class="text-center">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -178,29 +176,30 @@
 
                                 $no = 1;
 
-                                $sql = "SELECT * FROM tb_booking INNER JOIN tb_kendaraan ON tb_booking.id_kendaraan = tb_kendaraan.id_kendaraan INNER JOIN tb_pelanggan ON tb_booking.id_pelanggan = tb_pelanggan.id_pelanggan ORDER BY tb_booking.id_booking ASC";
+                                $sql = "SELECT * FROM tb_booking INNER JOIN tb_kendaraan ON tb_booking.id_kendaraan = tb_kendaraan.id_kendaraan INNER JOIN tb_pelanggan ON tb_booking.id_pelanggan = tb_pelanggan.id_pelanggan ORDER BY tb_booking.id_booking DESC";
+
                                 $ambilData = mysqli_query($koneksi, $sql);
 
-                                while ($tampilkan = mysqli_fetch_array($ambilData)){
-                                    echo "  
-                                        <tr>
-                                            <th>$no</th>
-                                            <td>$tampilkan[nama_pelanggan]</td>
-                                            <td>$tampilkan[alamat]</td>
-                                            <td>$tampilkan[merk]</td>
-                                            <td>$tampilkan[no_polisi]</td>
-                                            <td class='text-center'>$tampilkan[jadwal]</td>
-                                            <td class='text-center'>
-                                                <a href='details-in-dashboard.php?id=$tampilkan[id_pelanggan]'>
-                                                    <i class='fas fa-eye fa-2x'></i>
-                                                </a>
-                                            </td>
-                                        </tr> ";
+                                while ($tampilkan = mysqli_fetch_array($ambilData)) { ?>
+                                      
+                                    <tr>
+                                        <th><?= $no++ ?></th>
+                                        <td><?= $tampilkan['nama_pelanggan'] ?></td>
+                                        <td><?= $tampilkan['alamat'] ?></td>
+                                        <td><?= $tampilkan['merk'] ?></td>
+                                        <td><?= $tampilkan['no_polisi'] ?></td>
+                                        <td class='text-center'><?= $tampilkan['jadwal'] ?></td>
+                                        <td class='text-center'>
+                                            <?php if($tampilkan['status']==0) { ?>
+                                                <span class="badge badge-pill badge-warning">On Progress</span>
+                                            <?php } elseif($tampilkan['status']==1) { ?>
+                                                <span class="badge badge-pill badge-success">Finish</span>
+                                            <?php } ?>
+                                        </td>
+                                    </tr> 
 
-                                    $no++;
-                                }
-
-                                ?>
+                                    
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>

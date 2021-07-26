@@ -22,7 +22,7 @@
         <?php if ($_SESSION["level"] == "user") { ?>
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="after-login.php">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashbord-user.php">
             <div class="sidebar-brand-text mx-3">Ardent Details</div>
         </a>
 
@@ -30,7 +30,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="after-login.php">
+            <a class="nav-link" href="dashbord-user.php">
                 <i class="fas fa-home"></i><span>Dashboard</span>
             </a>
         </li>
@@ -127,6 +127,7 @@
                                     <th scope="col">Merk</th>
                                     <th scope="col">No Polisi</th>
                                     <th scope="col" class="text-center">Jadwal Booking</th>
+                                    <th scope="col" class="text-center">Status</th>
                                     <th scope="col" class="text-center">Details</th>
                                 </tr>
                             </thead>
@@ -137,29 +138,38 @@
 
                                 $no = 1;
 
-                                $sql = "SELECT * FROM tb_booking INNER JOIN tb_kendaraan ON tb_booking.id_kendaraan = tb_kendaraan.id_kendaraan INNER JOIN tb_pelanggan ON tb_booking.id_pelanggan = tb_pelanggan.id_pelanggan ORDER BY tb_booking.id_booking ASC";
+                                $sql = "SELECT * FROM tb_booking INNER JOIN tb_kendaraan ON tb_booking.id_kendaraan = tb_kendaraan.id_kendaraan INNER JOIN tb_pelanggan ON tb_booking.id_pelanggan = tb_pelanggan.id_pelanggan ORDER BY tb_booking.id_booking DESC";
+                                
                                 $ambilData = mysqli_query($koneksi, $sql);
 
-                                while ($tampilkan = mysqli_fetch_array($ambilData)){
-                                    echo "  
-                                        <tr>
-                                            <th>$no</th>
-                                            <td>$tampilkan[nama_pelanggan]</td>
-                                            <td>$tampilkan[alamat]</td>
-                                            <td>$tampilkan[merk]</td>
-                                            <td>$tampilkan[no_polisi]</td>
-                                            <td class='text-center'>$tampilkan[jadwal]</td>
-                                            <td class='text-center'>
-                                                <a href='details-in-databooking.php?id=$tampilkan[id_pelanggan]'>
-                                                    <i class='fas fa-eye fa-2x'></i>
-                                                </a>
-                                            </td>
-                                        </tr> ";
+                                while ($tampilkan = mysqli_fetch_array($ambilData)){ ?>
+                                    
+                                <tr>
+                                    <th><?= $no++ ?></th>
+                                    <td><?= $tampilkan['nama_pelanggan'] ?></td>
+                                    <td><?= $tampilkan['alamat'] ?></td>
+                                    <td><?= $tampilkan['merk'] ?></td>
+                                    <td><?= $tampilkan['no_polisi'] ?></td>
+                                    <td class='text-center'><?= $tampilkan['jadwal'] ?></td>
+                                    <td class='text-center'>
+                                        <?php if($tampilkan['status']==0) { ?>
+                                            <a onclick = "turn_off()" href="aksi-data_booking.php?id=<?= $tampilkan['id_booking'] ?>" class='badge badge-pill badge-warning' id="matikan">On Progress</a>
+                                        <?php } elseif($tampilkan['status']==1) { ?>
+                                            <a onclick = "turn_off()" href="aksi-data_booking.php?id=<?= $tampilkan['id_booking'] ?>" class='badge badge-pill badge-success' id="matikan" style="pointer-events: none;">Finish</a>
+                                        <?php } ?>
+                                    </td>
+                                    <td class='text-center'>
+                                        <a href='details-in-databooking.php?id=<?= $tampilkan['id_pelanggan'] ?>' style="text-decoration: none;">
+                                            <i class='far fa-edit fa-2x text-info'></i>
+                                        </a>
+                                        <a href='hapus-data.php?aksi=hapus&id=<?= $tampilkan['id_pelanggan'] ?>' style="text-decoration: none;">
+                                            <i class="far fa-trash-alt fa-2x text-danger"></i>
+                                        </a>
+                                    </td>
+                                </tr> 
+                                    
+                                <?php } ?>
 
-                                    $no++;
-                                }
-
-                                ?>
                             </tbody>
                         </table>
                     </div>
@@ -175,7 +185,7 @@
         <i class="fas fa-angle-double-up"></i>
     </a>
 
-    <?php include 'script.php' ?>
+    <?php include 'script.php'; ?>
 
  </body>
 
